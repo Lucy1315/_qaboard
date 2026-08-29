@@ -1,0 +1,316 @@
+.hero {
+  position: relative;
+  padding: 84px var(--sp8) var(--sp11);
+  overflow: hidden;
+  background: var(--ink900);
+}
+
+.inner {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 588px 1fr;
+  gap: var(--sp9);
+  align-items: center;
+  max-width: var(--w-hero);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 var(--sp3);
+  border: 1px solid rgb(255 255 255 / 24%);
+  border-radius: var(--r-badge);
+  color: var(--on-dark-2);
+  font: 600 12px/1 var(--sans);
+  letter-spacing: 0.08em;
+}
+
+.h1 {
+  margin: 22px 0 0;
+  color: var(--on-dark);
+  font: 700 56px/1.24 var(--sans);
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  max-width: 470px;
+  margin: var(--sp5) 0 0;
+  color: var(--on-dark-2);
+  font: 400 18px/1.75 var(--sans);
+}
+
+.cta {
+  display: flex;
+  gap: var(--sp3);
+  margin-top: 34px;
+}
+
+.note {
+  margin: var(--sp6) 0 0;
+  color: var(--on-dark-3);
+  font: 400 13px/1.7 var(--sans);
+}
+
+/* 질문 → 답변 플로팅 카드 (design.md 10.4절) */
+.qa {
+  padding: 18px var(--sp5);
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: var(--r-card);
+  background: var(--ink700);
+}
+
+.qaShift {
+  margin-left: var(--sp8);
+}
+
+.qaTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp3);
+  margin-bottom: var(--sp3);
+}
+
+.qaRole {
+  color: var(--on-dark-3);
+  font: 700 11.5px/1 var(--sans);
+  letter-spacing: 0.12em;
+}
+
+.qaTitle {
+  margin: 0 0 var(--sp2);
+  color: var(--on-dark);
+  font: 700 16px/1.55 var(--sans);
+}
+
+.qaBody {
+  margin: 0;
+  color: var(--on-dark-2);
+  font: 400 14px/1.8 var(--sans);
+}
+
+.qaBodyStrong {
+  color: var(--on-dark);
+}
+
+.qaTime {
+  margin: var(--sp3) 0 0;
+  color: var(--on-dark-3);
+  font: 400 12px/1 var(--mono);
+}
+
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  margin-left: 34px;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgb(107 70 229 / 10%),
+    rgb(107 70 229 / 100%),
+    rgb(42 79 224 / 10%)
+  );
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vio);
+  box-shadow: 0 0 0 4px rgb(107 70 229 / 25%);
+  transform: translateY(-50%);
+}
+
+.linkLabel {
+  margin-left: 30px;
+  color: var(--on-dark-3);
+  font: 600 12px/1 var(--sans);
+  letter-spacing: 0.08em;
+}
+
+/* 전환 밴드 (design.md 9절) */
+.fade {
+  height: 88px;
+  background: linear-gradient(180deg, var(--ink900), var(--canvas));
+}
+
+/* 이용 흐름 · 마무리 */
+.section {
+  padding: var(--sp8) var(--sp8) var(--sp10);
+  background: var(--canvas);
+}
+
+.sectionInner {
+  max-width: var(--w-section);
+  margin: 0 auto;
+}
+
+.kicker {
+  color: var(--fg2);
+  font: 700 12px/1 var(--sans);
+  letter-spacing: 0.16em;
+}
+
+.h2 {
+  margin: 14px 0 var(--sp8);
+  color: var(--fg);
+  font: 700 28px/1.45 var(--sans);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--fg);
+}
+
+.step {
+  padding: var(--sp6) var(--sp7) 6px 0;
+  border-right: 1px solid var(--divider);
+}
+
+.step:not(:first-child) {
+  padding-left: var(--sp7);
+}
+
+.step:last-child {
+  border-right: 0;
+}
+
+.stepNo {
+  color: var(--pri);
+  font: 600 13px/1 var(--mono);
+  letter-spacing: 0.1em;
+}
+
+.stepTitle {
+  margin: 14px 0 var(--sp2);
+  color: var(--fg);
+  font: 700 19px/1.45 var(--sans);
+}
+
+.stepDesc {
+  margin: 0;
+  color: var(--fg2);
+  font: 400 14.5px/1.8 var(--sans);
+}
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp7);
+  padding: var(--sp9) var(--sp8);
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+  background: var(--sur);
+}
+
+.close h3 {
+  margin: 0 0 10px;
+  color: var(--fg);
+  font: 700 26px/1.5 var(--sans);
+}
+
+.close p {
+  max-width: 560px;
+  margin: 0;
+  color: var(--fg2);
+  font: 400 15px/1.75 var(--sans);
+}
+
+@media (width <= 1023px) {
+  .inner {
+    display: block;
+  }
+
+  .qa {
+    margin-top: var(--sp7);
+  }
+
+  .qaShift {
+    margin-left: 0;
+  }
+}
+
+@media (width <= 767px) {
+  .hero {
+    padding: 34px var(--sp5) var(--sp8);
+  }
+
+  .h1 {
+    margin-top: var(--sp4);
+    font-size: 32px;
+    line-height: 1.34;
+  }
+
+  .lead {
+    margin-top: 14px;
+    font-size: 15px;
+  }
+
+  .cta {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: var(--sp6);
+  }
+
+  .fade {
+    height: 48px;
+  }
+
+  .section {
+    padding: var(--sp5) var(--sp5) var(--sp8);
+  }
+
+  .h2 {
+    margin: var(--sp3) 0 22px;
+    font-size: 20px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    padding: 18px 0 var(--sp4);
+    border-right: 0;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .step:not(:first-child) {
+    padding-left: 0;
+  }
+
+  .step:last-child {
+    border-bottom: 0;
+  }
+
+  .stepTitle {
+    margin: 10px 0 6px;
+    font-size: 17px;
+  }
+
+  .close {
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--sp7) var(--sp5);
+  }
+
+  .close h3 {
+    font-size: 20px;
+  }
+}
