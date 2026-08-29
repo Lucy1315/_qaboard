@@ -1,7 +1,9 @@
-/* T026 — contracts/repository.md. 데이터 접근의 유일한 통로이다.
+/* T026·T041 — contracts/repository.md. 데이터 접근의 유일한 통로이다.
    페이지가 저장소 구현을 직접 부르지 않는다. */
 import type { QuestionDetail, QuestionInput, QuestionSummary, Viewer } from './types';
+import { isMock } from '../lib/env';
 import { mockRepository } from './mockRepository';
+import { supabaseRepository } from './supabaseRepository';
 
 export interface QuestionRepository {
   listQuestions(viewer: Viewer): Promise<QuestionSummary[]>;
@@ -12,5 +14,4 @@ export interface QuestionRepository {
   upsertAnswer(questionId: string, body: string, viewer: Viewer): Promise<void>;
 }
 
-/* Phase 5 에서 supabaseRepository 를 추가한다. 지금은 Mock 만 존재한다. */
-export const repository: QuestionRepository = mockRepository;
+export const repository: QuestionRepository = isMock ? mockRepository : supabaseRepository;

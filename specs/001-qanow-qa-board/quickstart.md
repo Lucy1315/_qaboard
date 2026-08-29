@@ -53,7 +53,7 @@ Supabase 없이 세 화면을 모두 볼 수 있다. 역할은 URL 질의로 바
 npm run verify       # typecheck + lint + stylelint + test + contrast + build
 npm test             # 단위·컴포넌트 (Vitest)
 npm run test:e2e     # Playwright (1440 / 390 / reduced-motion)
-npm run test:rls     # RLS 계약 (Supabase 필요)
+npm run test:rls     # RLS 계약 12행 (Supabase 필요)
 npm run contrast     # tokens.css 대비 계산 — 기준 미달 시 실패
 ```
 
@@ -65,6 +65,18 @@ npm run contrast     # tokens.css 대비 계산 — 기준 미달 시 실패
 supabase start                  # 로컬 스택
 supabase db reset               # migrations + seed 적용
 npm run dev:supabase
+```
+
+### RLS 계약 테스트에 필요한 환경 변수
+
+`tests/rls/` 는 회원 A·회원 B·관리자 세 계정으로 12개 정책을 **UI 를 거치지 않고** 검증한다.
+아래가 비어 있으면 전체를 건너뛰며, 건너뛴 것은 **통과가 아니다**.
+
+```
+SUPABASE_URL=            SUPABASE_ANON_KEY=
+RLS_MEMBER_A_EMAIL=      RLS_MEMBER_A_PASSWORD=
+RLS_MEMBER_B_EMAIL=      RLS_MEMBER_B_PASSWORD=
+RLS_ADMIN_EMAIL=         RLS_ADMIN_PASSWORD=
 ```
 
 관리자 계정은 화면으로 만들 수 없다(FR-004). 일반 가입 후 SQL로 승격한다.

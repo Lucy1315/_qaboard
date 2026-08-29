@@ -1,0 +1,7 @@
+-- 로컬 확인용 시드. 호스티드 환경에서는 쓰지 않는다.
+--
+-- 관리자 계정은 화면으로 만들 수 없다(FR-004). 일반 가입 후 아래로 승격한다.
+--   update public.profiles set role = 'admin' where email = '<실제 이메일>';
+--
+-- 주의: 호스티드 Supabase Auth 는 @example.com 같은 테스트 도메인 가입을 거부한다.
+--       실제 도메인 주소를 쓸 것(research R9).

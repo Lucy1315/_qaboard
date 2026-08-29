@@ -6,6 +6,7 @@ export function useAuth() {
   const role = state.viewer.role;
   return {
     ...state,
+    isLoading: state.status === 'loading',
     isAnon: role === 'anon',
     isMember: role === 'member',
     isAdmin: role === 'admin',

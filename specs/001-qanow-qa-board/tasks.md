@@ -20,8 +20,9 @@
 | Phase 3 세 화면·Mock | ✅ 완료 (T021~T031, T033, T034) | 테스트 41/41, 390px 가로 스크롤 0 |
 | — T032 상태 필터 | ✅ 완료 | `FR-041` 승인(2026-08-29) 후 구현 |
 | 게이트 G1 | ⚠️ 부분 | G1-c·d 통과. **G1-a·b(E2E·axe)는 Playwright 브라우저 미설치로 미실행** |
-| Phase 4 design-sync | ⏸ 대기 | design-system 타입 프로젝트 신규 생성 승인 필요 |
-| Phase 5~8 | ⏸ 대기 | 게이트 G2 미통과 |
+| Phase 4 design-sync | ✅ 완료 | QANOW Components (qaboard) 프로젝트에 23개 컴포넌트 동기화 |
+| Phase 5 Supabase 기반 | ✅ 작성 완료 (T041~T048) | **마이그레이션 실행·RLS 테스트는 실제 프로젝트 필요** |
+| Phase 6~8 | ⏸ 대기 | 인증 화면과 통합 검증 |
 
 ## Phase 의존 관계 (고정)
 
@@ -127,14 +128,14 @@ Phase 1 ─→ Phase 2 ─→ Phase 3 ──┐
 
 | ID | 태스크 | 요구사항 | design.md | 파일 | 검증 |
 |---|---|---|---|---|---|
-| **T041** | Supabase 클라이언트 + `VITE_DATA_SOURCE` 분기 | plan.md 15절 | — | `src/lib/supabase.ts`, `src/data/repository.ts` | `mock`/`supabase` 전환이 코드 수정 없이 된다 |
-| **T042** | `0001_schema.sql` — `profiles`·`questions`·`answers` + **CHECK** + 인덱스 + `unique(question_id)` | FR-016·023~025·027 | — | `supabase/migrations/0001_schema.sql` | 공백만 INSERT가 DB에서 거부된다. 답변 2건 INSERT가 거부된다 |
-| **T043** | `0003_profile_trigger.sql` — `auth.users` → `profiles(role='member')` | FR-001·FR-004 | — | `supabase/migrations/0003_profile_trigger.sql` | 가입 시 프로필이 자동 생성되고 역할이 `member` |
-| **T044** | `is_admin()` — `SECURITY DEFINER`, `search_path=public` | research R5 | — | `supabase/migrations/0002_rls.sql` | 정책 평가 시 재귀가 발생하지 않는다 |
-| **T045** | RLS 정책 12개 작성 | **FR-018~022**, contracts/rls.md | — | `supabase/migrations/0002_rls.sql` | `tests/rls/` 12행 전부 통과 |
-| **T046** | **`GRANT` 명시** + `ENABLE ROW LEVEL SECURITY` 3테이블 | 원칙 II | — | `supabase/migrations/0002_rls.sql` | GRANT를 빼면 배포 환경에서 실패함을 확인(로컬 기본 권한에 기대지 않는다) |
-| **T047** | `supabaseRepository` 구현 — 목록은 임베딩 `answers(id)` 1회 조회, `toQuestionSummary()` 상태 도출 | FR-006·007·008 | 11 | `src/data/supabaseRepository.ts` | `contracts/repository.md` 동치 조건 7항목을 Mock과 **동일하게** 통과 |
-| **T048** | 관리자 역할 판별 — 세션 후 `profiles.role` 1회 조회, Context 보관 | FR-004, research R4 | 6 | `src/auth/AuthProvider.tsx` | 클라이언트 역할을 조작해도 RLS가 거부한다 |
+| ✅ **T041** | Supabase 클라이언트 + `VITE_DATA_SOURCE` 분기 | plan.md 15절 | — | `src/lib/supabase.ts`, `src/data/repository.ts` | `mock`/`supabase` 전환이 코드 수정 없이 된다 |
+| ✅ **T042** | `0001_schema.sql` — `profiles`·`questions`·`answers` + **CHECK** + 인덱스 + `unique(question_id)` | FR-016·023~025·027 | — | `supabase/migrations/0001_schema.sql` | 공백만 INSERT가 DB에서 거부된다. 답변 2건 INSERT가 거부된다 |
+| ✅ **T043** | `0003_profile_trigger.sql` — `auth.users` → `profiles(role='member')` | FR-001·FR-004 | — | `supabase/migrations/0003_profile_trigger.sql` | 가입 시 프로필이 자동 생성되고 역할이 `member` |
+| ✅ **T044** | `is_admin()` — `SECURITY DEFINER`, `search_path=public` | research R5 | — | `supabase/migrations/0002_rls.sql` | 정책 평가 시 재귀가 발생하지 않는다 |
+| ✅ **T045** | RLS 정책 12개 작성 | **FR-018~022**, contracts/rls.md | — | `supabase/migrations/0002_rls.sql` | `tests/rls/` 12행 전부 통과 |
+| ✅ **T046** | **`GRANT` 명시** + `ENABLE ROW LEVEL SECURITY` 3테이블 | 원칙 II | — | `supabase/migrations/0002_rls.sql` | GRANT를 빼면 배포 환경에서 실패함을 확인(로컬 기본 권한에 기대지 않는다) |
+| ✅ **T047** | `supabaseRepository` 구현 — 목록은 임베딩 `answers(id)` 1회 조회, `toQuestionSummary()` 상태 도출 | FR-006·007·008 | 11 | `src/data/supabaseRepository.ts` | `contracts/repository.md` 동치 조건 7항목을 Mock과 **동일하게** 통과 |
+| ✅ **T048** | 관리자 역할 판별 — 세션 후 `profiles.role` 1회 조회, Context 보관 | FR-004, research R4 | 6 | `src/auth/AuthProvider.tsx` | 클라이언트 역할을 조작해도 RLS가 거부한다 |
 
 ---
 

@@ -3,10 +3,19 @@
 import type { ReactNode } from 'react';
 import { useAuth } from './useAuth';
 import { StateBox } from '../components/ui/StateBox';
+import { LoadingNote } from '../components/ui/LoadingNote';
 import { Page } from '../components/layout/Page';
 
 export function RequireAuth({ children }: { children: ReactNode }) {
-  const { isAnon } = useAuth();
+  const { isAnon, isLoading } = useAuth();
+  /* 세션을 확인하는 동안 로그인 안내를 먼저 띄우면 깜빡인다. */
+  if (isLoading) {
+    return (
+      <Page>
+        <LoadingNote />
+      </Page>
+    );
+  }
   if (isAnon) {
     return (
       <Page>
