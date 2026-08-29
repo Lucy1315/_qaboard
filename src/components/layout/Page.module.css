@@ -1,0 +1,88 @@
+.page {
+  max-width: var(--w-page);
+  margin: 0 auto;
+  padding: var(--sp8) var(--sp8) var(--sp10);
+}
+
+.prose {
+  max-width: var(--w-prose);
+}
+
+.title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp5);
+  padding-bottom: var(--sp5);
+  border-bottom: 1px solid var(--divider);
+}
+
+.stacked {
+  display: block;
+}
+
+.title h1 {
+  margin: 0 0 var(--sp2);
+  font: 700 30px/1.35 var(--sans);
+  color: var(--fg);
+}
+
+.title p {
+  margin: 0;
+  font: 400 14.5px/1.7 var(--sans);
+  color: var(--fg2);
+}
+
+.back {
+  padding: 0 0 14px;
+  border: 0;
+  background: none;
+  color: var(--fg2);
+  font: 600 13.5px/1 var(--sans);
+  cursor: pointer;
+}
+
+.back:hover {
+  color: var(--fg);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp4);
+  padding: var(--sp6) var(--sp8);
+  background: var(--ink900);
+}
+
+.footer span {
+  color: var(--on-dark-3);
+  font: 400 12.5px/1.6 var(--sans);
+}
+
+.wordmark {
+  color: var(--on-dark);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+}
+
+@media (width <= 767px) {
+  .page {
+    padding: var(--sp6) var(--sp5) var(--sp8);
+  }
+
+  .title {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .title h1 {
+    font-size: 24px;
+  }
+
+  .footer {
+    padding: var(--sp5);
+  }
+}

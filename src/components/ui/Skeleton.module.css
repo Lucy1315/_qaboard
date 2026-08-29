@@ -1,0 +1,38 @@
+.wrap {
+  margin-top: var(--sp4);
+  border: 1px solid var(--divider);
+  border-radius: var(--r-card);
+  background: var(--sur);
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp4);
+  height: 58px;
+  padding: 0 var(--sp4);
+  border-bottom: 1px solid var(--divider);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.bar {
+  height: 14px;
+  border-radius: var(--sp1);
+  background: var(--skeleton);
+}
+
+.block {
+  margin-top: var(--sp4);
+  padding: var(--sp6);
+  border: 1px solid var(--divider);
+  border-radius: var(--r-card);
+  background: var(--sur);
+}
+
+.block .bar + .bar {
+  margin-top: 10px;
+}

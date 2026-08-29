@@ -1,0 +1,41 @@
+/* T032 — design.md 11.1절 */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 22px 0 var(--sp1);
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--divider);
+  border-radius: var(--r-btn);
+  background: var(--sur);
+  color: var(--fg2);
+  font: 600 13.5px/1 var(--sans);
+  cursor: pointer;
+}
+
+.tab:hover:not(:disabled) {
+  border-color: var(--input-border);
+}
+
+.tab.on {
+  border-color: var(--fg);
+  background: var(--fg);
+  color: var(--sur);
+}
+
+.tab:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.count {
+  font: 600 12px/1 var(--mono);
+  opacity: 0.75;
+}

@@ -1,0 +1,61 @@
+/* T013 — FR-038 / design.md 22절
+   이 파일 밖에서 animation 프로퍼티를 쓰지 않는다 (stylelint 로 강제).
+   감소 선호 환경에서는 아래 5종이 전부 정지하고 최종 상태가 정적으로 남는다. */
+@media (prefers-reduced-motion: no-preference) {
+  .drift {
+    animation: drift 22s ease-in-out infinite alternate;
+  }
+
+  .floaty1 {
+    animation: floaty 11s ease-in-out infinite alternate;
+  }
+
+  .floaty2 {
+    animation: floaty 13s ease-in-out infinite alternate-reverse;
+  }
+
+  .spin {
+    animation: sp 1s linear infinite;
+  }
+
+  .pulse {
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-1.4%, 1.6%, 0);
+  }
+}
+
+@keyframes floaty {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes sp {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+}

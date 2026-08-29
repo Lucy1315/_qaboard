@@ -1,0 +1,62 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 var(--sp2);
+  border: 1px solid;
+  border-radius: var(--r-badge);
+  font: 700 12px/1 var(--sans);
+  white-space: nowrap;
+}
+
+.dot {
+  display: block;
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.wait {
+  color: var(--bdg-wait-fg);
+  background: var(--bdg-wait-bg);
+  border-color: var(--bdg-wait-bd);
+}
+
+.done {
+  color: var(--bdg-done-fg);
+  background: var(--bdg-done-bg);
+  border-color: var(--bdg-done-bd);
+}
+
+.error {
+  color: var(--bdg-err-fg);
+  background: var(--bdg-err-bg);
+  border-color: var(--bdg-err-bd);
+}
+
+.neutral {
+  color: var(--bdg-neutral-fg);
+  background: var(--bdg-neutral-bg);
+  border-color: var(--bdg-neutral-bd);
+}
+
+.saving {
+  color: var(--bdg-save-fg);
+  background: var(--bdg-save-bg);
+  border-color: var(--bdg-save-bd);
+}
+
+.darkWait {
+  color: var(--bdg-dwait-fg);
+  background: var(--bdg-dwait-bg);
+  border-color: var(--bdg-dwait-bd);
+}
+
+.darkDone {
+  color: var(--bdg-ddone-fg);
+  background: var(--bdg-ddone-bg);
+  border-color: var(--bdg-ddone-bd);
+}

@@ -1,0 +1,88 @@
+/* T009 — design.md 15절 디자인 토큰. 이름과 값을 1:1로 옮긴다.
+   --ink800 은 확정본 미사용이므로 선언하지 않는다 (design.md 25절 3번).
+   --focusDark 는 어두운 표면 포커스 링으로 분리한다 (design.md 25절 2번). */
+:root {
+  /* 서체 */
+  --sans: "Gothic A1", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* 어두운 표면 */
+  --ink900: #080d1c;
+  --ink700: #18213f;
+  --on-dark: #f2f5fc;
+  --on-dark-2: #c7cfe4;
+  --on-dark-3: #96a0bc;
+
+  /* 밝은 표면 */
+  --canvas: #f5f7fb;
+  --sur: #ffffff;
+  --fg: #111827;
+  --fg2: #48526b;
+  --divider: #dfe4ee;
+  --input-border: #767f94;
+
+  /* 포인트 */
+  --pri: #2a4fe0;
+  --pri2: #1e3bb8;
+  --vio: #6b46e5;
+  --focus: #2a4fe0;
+  --focus-dark: #7c97ff;
+  --err: #a81e12;
+  --wait-edge: #c97a16;
+
+  /* 상태 배지 — 밝은 표면 */
+  --bdg-wait-fg: #8a4b00;
+  --bdg-wait-bg: #fff4e5;
+  --bdg-wait-bd: #f0ce9b;
+  --bdg-done-fg: #0b6b4f;
+  --bdg-done-bg: #e7f6f0;
+  --bdg-done-bd: #a5d8c6;
+  --bdg-err-fg: #a81e12;
+  --bdg-err-bg: #fdf0ee;
+  --bdg-err-bd: #f0bdb6;
+  --bdg-neutral-fg: #48526b;
+  --bdg-neutral-bg: #f0f2f7;
+  --bdg-neutral-bd: #dfe4ee;
+  --bdg-save-fg: #2a4fe0;
+  --bdg-save-bg: #edf1fe;
+  --bdg-save-bd: #c3d0f8;
+
+  /* 상태 배지 — 어두운 표면 */
+  --bdg-dwait-fg: #ffcf8f;
+  --bdg-dwait-bg: #3a2a10;
+  --bdg-dwait-bd: #6a4c1c;
+  --bdg-ddone-fg: #7ee8c4;
+  --bdg-ddone-bg: #0e2e26;
+  --bdg-ddone-bd: #1e5a49;
+
+  /* 보조 표면 */
+  --skeleton: #e7eaf2;
+  --row-hover: #f7f9fe;
+  --err-surface: #fdf8f7;
+  --confirm-border: #e4b8b2;
+  --destructive-border: #c98b84;
+
+  /* 간격 (design.md 18절) */
+  --sp1: 4px;
+  --sp2: 8px;
+  --sp3: 12px;
+  --sp4: 16px;
+  --sp5: 20px;
+  --sp6: 24px;
+  --sp7: 32px;
+  --sp8: 40px;
+  --sp9: 56px;
+  --sp10: 72px;
+  --sp11: 96px;
+
+  /* 최대 폭 */
+  --w-hero: 1200px;
+  --w-section: 1120px;
+  --w-page: 960px;
+  --w-prose: 720px;
+
+  /* 반경 */
+  --r-btn: 8px;
+  --r-card: 12px;
+  --r-badge: 6px;
+}

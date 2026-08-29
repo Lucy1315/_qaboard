@@ -1,0 +1,65 @@
+/* T012 — reset, 기본 타이포, 포커스 표시 (design.md 12·16·18·21절) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--pri);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--pri2);
+}
+
+/* 원칙 VIII — 포커스 표시를 숨기지 않는다. hover 가 대신하지 않는다. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* 어두운 표면에서는 --focus-dark (7.12:1). --pri 는 --ink900 위에서 3.04:1로 아슬하다. */
+.surfaceDark :focus-visible {
+  outline-color: var(--focus-dark);
+}
+
+.surfaceDark {
+  background: var(--ink900);
+  color: var(--on-dark-2);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.mono {
+  font-family: var(--mono);
+}
