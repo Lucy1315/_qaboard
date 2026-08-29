@@ -5,7 +5,11 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist', 'dist-types', 'coverage', 'node_modules'] },
+  {
+    // 생성물·동기화 산출물은 검사하지 않는다. ds-bundle/_vendor 에는 React 원본이 들어 있어
+    // react-internal/* 규칙을 참조하는 주석 때문에 lint 가 통째로 실패한다.
+    ignores: ['dist', 'dist-types', 'dist-lib', 'coverage', 'node_modules', 'ds-bundle', '.ds-sync'],
+  },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
