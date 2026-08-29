@@ -10,7 +10,7 @@ export function RequireAuth({ children }: { children: ReactNode }) {
   if (isAnon) {
     return (
       <Page>
-        <StateBox variant="loginRequired" />
+        <StateBox variant="loginRequired" as="h1" />
       </Page>
     );
   }

@@ -1,6 +1,6 @@
 /* T033·T034 — design.md 13절. 역할·답변 유무에 따른 행동 영역은 13.1절 표를 그대로 따른다.
    권한 없는 요소는 비활성으로 띄우지 않고 아예 렌더하지 않는다 (FR-017). */
-import { useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Badge } from '../ui/Badge';
 import { Button } from '../ui/Button';
 import type { QuestionDetail } from '../../data/types';
@@ -31,6 +31,14 @@ export function QuestionDetailView({
   const [confirming, setConfirming] = useState(false);
   const answered = q.answer !== null;
 
+  /* 확인 블록이 나타나면 포커스를 옮긴다. 옮기지 않으면 키보드 사용자가
+     화면이 바뀐 것을 알 수 없다(원칙 VIII). */
+  const confirmRef = useRef<HTMLDivElement>(null);
+  const confirmTitleId = useId();
+  useEffect(() => {
+    if (confirming) confirmRef.current?.focus();
+  }, [confirming]);
+
   return (
     <div>
       <div className={styles.qhead}>
@@ -52,7 +60,7 @@ export function QuestionDetailView({
         {q.answer ? (
           <>
             <p className={styles.body}>{q.answer.body}</p>
-            <p className={styles.qmeta} style={{ marginTop: 14 }}>
+            <p className={`${styles.qmeta} ${styles.answerMeta}`}>
               답변 {formatDateTime(q.answer.updatedAt)}
             </p>
           </>
@@ -79,9 +87,15 @@ export function QuestionDetailView({
 
       {/* FR-011 — 되돌릴 수 없음을 알리는 확인 단계 */}
       {isMember && !answered && confirming ? (
-        <div className={styles.confirm} role="alertdialog" aria-label="질문 삭제 확인">
+        <div
+          ref={confirmRef}
+          tabIndex={-1}
+          className={styles.confirm}
+          role="group"
+          aria-labelledby={confirmTitleId}
+        >
           <p>
-            <strong>이 질문을 삭제하시겠습니까?</strong>
+            <strong id={confirmTitleId}>이 질문을 삭제하시겠습니까?</strong>
             삭제한 질문은 되돌릴 수 없습니다.
           </p>
           <div className={styles.confirmRow}>

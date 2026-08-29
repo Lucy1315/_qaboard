@@ -1,6 +1,6 @@
 .box {
-  margin-top: var(--sp4);
-  padding: 44px var(--sp6);
+  margin-top: var(--sp-16);
+  padding: var(--sp-44) var(--sp-24);
   border: 1px solid var(--divider);
   border-radius: var(--r-card);
   background: var(--sur);
@@ -13,13 +13,13 @@
 }
 
 .title {
-  margin: var(--sp3) 0 var(--sp2);
+  margin: var(--sp-12) 0 var(--sp-8);
   font: 700 17px/1.5 var(--sans);
   color: var(--fg);
 }
 
 .desc {
-  margin: 0 0 18px;
+  margin: 0 0 var(--sp-18);
   font: 400 14px/1.75 var(--sans);
   color: var(--fg2);
 }
@@ -27,23 +27,5 @@
 .actions {
   display: flex;
   justify-content: center;
-  gap: var(--sp3);
-}
-
-.loading {
-  display: flex;
-  align-items: center;
-  gap: var(--sp2);
-  margin-top: var(--sp4);
-  font: 600 13.5px/1 var(--sans);
-  color: var(--fg2);
-}
-
-.spinner {
-  display: block;
-  width: 14px;
-  height: 14px;
-  border: 2px solid var(--skeleton);
-  border-top-color: var(--pri);
-  border-radius: 50%;
+  gap: var(--sp-12);
 }

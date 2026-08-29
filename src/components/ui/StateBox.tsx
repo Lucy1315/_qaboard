@@ -26,28 +26,24 @@ const TONE = {
 export function StateBox({
   variant,
   actions,
+  /** 화면에 다른 제목이 없을 때는 h1 으로 올린다(제목 계층 건너뜀 방지). */
+  as: Heading = 'h2',
 }: {
   variant: StateVariant;
   actions?: ReactNode;
+  as?: 'h1' | 'h2';
 }) {
   const copy = STATE_COPY[variant];
   const isError = variant === 'errorList' || variant === 'errorDetail';
   return (
-    <div className={`${styles.box} ${isError ? styles.error : ''}`} role={isError ? 'alert' : undefined}>
+    <div
+      className={`${styles.box} ${isError ? styles.error : ''}`}
+      role={isError ? 'alert' : undefined}
+    >
       <Badge tone={TONE[variant]}>{copy.badge}</Badge>
-      <h3 className={styles.title}>{copy.title}</h3>
+      <Heading className={styles.title}>{copy.title}</Heading>
       <p className={styles.desc}>{copy.desc}</p>
       {actions ? <div className={styles.actions}>{actions}</div> : null}
     </div>
-  );
-}
-
-/** 로딩은 해당 영역 안에서만 표시한다. 화면 전체를 덮지 않는다. */
-export function LoadingNote() {
-  return (
-    <p className={styles.loading} role="status">
-      <span className={`${styles.spinner} spin`} aria-hidden="true" />
-      {STATE_COPY.loading.label}
-    </p>
   );
 }

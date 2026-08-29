@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  padding: 84px var(--sp8) var(--sp11);
+  padding: var(--sp-84) var(--sp-40) var(--sp-96);
   overflow: hidden;
   background: var(--ink900);
 }
@@ -10,7 +10,7 @@
   z-index: 3;
   display: grid;
   grid-template-columns: 588px 1fr;
-  gap: var(--sp9);
+  gap: var(--sp-56);
   align-items: center;
   max-width: var(--w-hero);
   margin: 0 auto;
@@ -20,8 +20,8 @@
   display: inline-flex;
   align-items: center;
   height: 28px;
-  padding: 0 var(--sp3);
-  border: 1px solid rgb(255 255 255 / 24%);
+  padding: 0 var(--sp-12);
+  border: 1px solid var(--line-dark-eyebrow);
   border-radius: var(--r-badge);
   color: var(--on-dark-2);
   font: 600 12px/1 var(--sans);
@@ -29,7 +29,7 @@
 }
 
 .h1 {
-  margin: 22px 0 0;
+  margin: var(--sp-22) 0 0;
   color: var(--on-dark);
   font: 700 56px/1.24 var(--sans);
   letter-spacing: -0.02em;
@@ -37,41 +37,41 @@
 
 .lead {
   max-width: 470px;
-  margin: var(--sp5) 0 0;
+  margin: var(--sp-20) 0 0;
   color: var(--on-dark-2);
   font: 400 18px/1.75 var(--sans);
 }
 
 .cta {
   display: flex;
-  gap: var(--sp3);
-  margin-top: 34px;
+  gap: var(--sp-12);
+  margin-top: var(--sp-34);
 }
 
 .note {
-  margin: var(--sp6) 0 0;
+  margin: var(--sp-24) 0 0;
   color: var(--on-dark-3);
   font: 400 13px/1.7 var(--sans);
 }
 
 /* 질문 → 답변 플로팅 카드 (design.md 10.4절) */
 .qa {
-  padding: 18px var(--sp5);
-  border: 1px solid rgb(255 255 255 / 16%);
+  padding: var(--sp-18) var(--sp-20);
+  border: 1px solid var(--line-dark-card);
   border-radius: var(--r-card);
   background: var(--ink700);
 }
 
 .qaShift {
-  margin-left: var(--sp8);
+  margin-left: var(--sp-40);
 }
 
 .qaTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sp3);
-  margin-bottom: var(--sp3);
+  gap: var(--sp-12);
+  margin-bottom: var(--sp-12);
 }
 
 .qaRole {
@@ -81,7 +81,7 @@
 }
 
 .qaTitle {
-  margin: 0 0 var(--sp2);
+  margin: 0 0 var(--sp-8);
   color: var(--on-dark);
   font: 700 16px/1.55 var(--sans);
 }
@@ -97,7 +97,7 @@
 }
 
 .qaTime {
-  margin: var(--sp3) 0 0;
+  margin: var(--sp-12) 0 0;
   color: var(--on-dark-3);
   font: 400 12px/1 var(--mono);
 }
@@ -107,7 +107,7 @@
   display: flex;
   align-items: center;
   height: 64px;
-  margin-left: 34px;
+  margin-left: var(--sp-34);
 }
 
 .link::before {
@@ -117,9 +117,9 @@
   width: 2px;
   background: linear-gradient(
     180deg,
-    rgb(107 70 229 / 10%),
-    rgb(107 70 229 / 100%),
-    rgb(42 79 224 / 10%)
+    var(--connector-top),
+    var(--connector-mid),
+    var(--connector-end)
   );
 }
 
@@ -131,12 +131,12 @@
   height: 8px;
   border-radius: 50%;
   background: var(--vio);
-  box-shadow: 0 0 0 4px rgb(107 70 229 / 25%);
+  box-shadow: 0 0 0 4px var(--dot-glow);
   transform: translateY(-50%);
 }
 
 .linkLabel {
-  margin-left: 30px;
+  margin-left: var(--sp-30);
   color: var(--on-dark-3);
   font: 600 12px/1 var(--sans);
   letter-spacing: 0.08em;
@@ -150,7 +150,7 @@
 
 /* 이용 흐름 · 마무리 */
 .section {
-  padding: var(--sp8) var(--sp8) var(--sp10);
+  padding: var(--sp-40) var(--sp-40) var(--sp-72);
   background: var(--canvas);
 }
 
@@ -166,7 +166,7 @@
 }
 
 .h2 {
-  margin: 14px 0 var(--sp8);
+  margin: var(--sp-14) 0 var(--sp-40);
   color: var(--fg);
   font: 700 28px/1.45 var(--sans);
 }
@@ -178,12 +178,12 @@
 }
 
 .step {
-  padding: var(--sp6) var(--sp7) 6px 0;
+  padding: var(--sp-24) var(--sp-32) var(--sp-6) 0;
   border-right: 1px solid var(--divider);
 }
 
 .step:not(:first-child) {
-  padding-left: var(--sp7);
+  padding-left: var(--sp-32);
 }
 
 .step:last-child {
@@ -197,7 +197,7 @@
 }
 
 .stepTitle {
-  margin: 14px 0 var(--sp2);
+  margin: var(--sp-14) 0 var(--sp-8);
   color: var(--fg);
   font: 700 19px/1.45 var(--sans);
 }
@@ -212,15 +212,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sp7);
-  padding: var(--sp9) var(--sp8);
+  gap: var(--sp-32);
+  padding: var(--sp-56) var(--sp-40);
   border-top: 1px solid var(--divider);
   border-bottom: 1px solid var(--divider);
   background: var(--sur);
 }
 
 .close h3 {
-  margin: 0 0 10px;
+  margin: 0 0 var(--sp-10);
   color: var(--fg);
   font: 700 26px/1.5 var(--sans);
 }
@@ -238,7 +238,7 @@
   }
 
   .qa {
-    margin-top: var(--sp7);
+    margin-top: var(--sp-32);
   }
 
   .qaShift {
@@ -248,24 +248,24 @@
 
 @media (width <= 767px) {
   .hero {
-    padding: 34px var(--sp5) var(--sp8);
+    padding: var(--sp-34) var(--sp-20) var(--sp-40);
   }
 
   .h1 {
-    margin-top: var(--sp4);
+    margin-top: var(--sp-16);
     font-size: 32px;
     line-height: 1.34;
   }
 
   .lead {
-    margin-top: 14px;
+    margin-top: var(--sp-14);
     font-size: 15px;
   }
 
   .cta {
     flex-direction: column;
-    gap: 10px;
-    margin-top: var(--sp6);
+    gap: var(--sp-10);
+    margin-top: var(--sp-24);
   }
 
   .fade {
@@ -273,11 +273,11 @@
   }
 
   .section {
-    padding: var(--sp5) var(--sp5) var(--sp8);
+    padding: var(--sp-20) var(--sp-20) var(--sp-40);
   }
 
   .h2 {
-    margin: var(--sp3) 0 22px;
+    margin: var(--sp-12) 0 var(--sp-22);
     font-size: 20px;
   }
 
@@ -286,7 +286,7 @@
   }
 
   .step {
-    padding: 18px 0 var(--sp4);
+    padding: var(--sp-18) 0 var(--sp-16);
     border-right: 0;
     border-bottom: 1px solid var(--divider);
   }
@@ -300,14 +300,14 @@
   }
 
   .stepTitle {
-    margin: 10px 0 6px;
+    margin: var(--sp-10) 0 var(--sp-6);
     font-size: 17px;
   }
 
   .close {
     flex-direction: column;
     align-items: stretch;
-    padding: var(--sp7) var(--sp5);
+    padding: var(--sp-32) var(--sp-20);
   }
 
   .close h3 {

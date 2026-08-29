@@ -1,5 +1,5 @@
 /* T033 — design.md 12절. 작성과 수정이 같은 폼을 쓴다. */
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button } from '../ui/Button';
 import { InputField, TextareaField } from '../ui/Field';
 import { Badge } from '../ui/Badge';
@@ -19,13 +19,23 @@ export function QuestionForm({ mode, initial, saving, serverError, onCancel, onS
   const [title, setTitle] = useState(initial?.title ?? '');
   const [body, setBody] = useState(initial?.body ?? '');
   const [touched, setTouched] = useState(false);
+  const titleRef = useRef<HTMLInputElement>(null);
+  const bodyRef = useRef<HTMLTextAreaElement>(null);
 
   const titleErr = touched ? validateTitle(title) : null;
   const bodyErr = touched ? validateBody(body) : null;
 
   const submit = () => {
     setTouched(true);
-    if (validateTitle(title) || validateBody(body)) return;
+    /* 오류가 있으면 첫 오류 필드로 포커스를 옮긴다(plan.md 21절). */
+    if (validateTitle(title)) {
+      titleRef.current?.focus();
+      return;
+    }
+    if (validateBody(body)) {
+      bodyRef.current?.focus();
+      return;
+    }
     onSubmit({ title, body });
   };
 
@@ -36,6 +46,7 @@ export function QuestionForm({ mode, initial, saving, serverError, onCancel, onS
         help={HELP.title}
         error={serverError?.field === 'title' ? serverError.message : titleErr}
         count={{ now: countOf(title), max: LIMITS.title }}
+        inputRef={titleRef}
         value={title}
         placeholder="질문 제목을 입력하세요"
         onChange={(e) => setTitle(e.target.value)}
@@ -45,6 +56,7 @@ export function QuestionForm({ mode, initial, saving, serverError, onCancel, onS
         help={HELP.body}
         error={serverError?.field === 'body' ? serverError.message : bodyErr}
         count={{ now: countOf(body), max: LIMITS.body }}
+        inputRef={bodyRef}
         value={body}
         placeholder="문의하실 내용을 자세히 적어 주세요"
         onChange={(e) => setBody(e.target.value)}

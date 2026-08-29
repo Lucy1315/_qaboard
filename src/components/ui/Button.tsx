@@ -3,12 +3,9 @@
 import type { ButtonHTMLAttributes } from 'react';
 import styles from './Button.module.css';
 
-export type ButtonVariant =
-  | 'primary'
-  | 'secondary'
-  | 'destructive'
-  | 'darkPrimary'
-  | 'darkSecondary';
+/* design.md 19.2절. darkPrimary 는 primary 와 CSS 가 완전히 같아 통합했다.
+   어두운 표면에서도 Primary 는 파란 채움 하나로 충분하다. */
+export type ButtonVariant = 'primary' | 'secondary' | 'destructive' | 'darkSecondary';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant: ButtonVariant;

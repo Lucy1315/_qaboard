@@ -27,7 +27,7 @@ export function Hero({
             </h1>
             <p className={styles.lead}>궁금한 점을 남기면 관리자가 확인하고 답변해드립니다.</p>
             <div className={styles.cta}>
-              <Button variant="darkPrimary" onClick={onWrite}>
+              <Button variant="primary" onClick={onWrite}>
                 질문 작성하기
               </Button>
               <Button variant="darkSecondary" onClick={onMyQuestions}>

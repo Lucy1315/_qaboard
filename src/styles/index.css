@@ -1,0 +1,4 @@
+/* 디자인 시스템 스타일 진입점. 앱과 동기화 번들이 같은 파일을 쓴다. */
+@import "./tokens.css";
+@import "./base.css";
+@import "./motion.css";

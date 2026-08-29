@@ -2,16 +2,16 @@
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin: 22px 0 var(--sp1);
+  gap: var(--sp-6);
+  margin: var(--sp-22) 0 var(--sp-4);
 }
 
 .tab {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: var(--sp-8);
   height: 38px;
-  padding: 0 14px;
+  padding: 0 var(--sp-14);
   border: 1px solid var(--divider);
   border-radius: var(--r-btn);
   background: var(--sur);

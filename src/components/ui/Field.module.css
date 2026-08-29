@@ -1,10 +1,10 @@
 .field {
-  margin-top: var(--sp6);
+  margin-top: var(--sp-24);
 }
 
 .label {
   display: block;
-  margin-bottom: var(--sp2);
+  margin-bottom: var(--sp-8);
   font: 700 13.5px/1 var(--sans);
   color: var(--fg);
 }
@@ -20,13 +20,13 @@
 
 .input {
   height: 48px;
-  padding: 0 var(--sp3) 0 14px;
+  padding: 0 var(--sp-12) 0 var(--sp-14);
   font-size: 16px;
 }
 
 .textarea {
   min-height: 240px;
-  padding: 14px;
+  padding: var(--sp-14);
   font-size: 16px;
   line-height: 1.8;
   resize: vertical;
@@ -45,8 +45,8 @@
 .meta {
   display: flex;
   justify-content: space-between;
-  gap: var(--sp3);
-  margin-top: var(--sp2);
+  gap: var(--sp-12);
+  margin-top: var(--sp-8);
   font: 400 12.5px/1.5 var(--sans);
   color: var(--fg2);
 }

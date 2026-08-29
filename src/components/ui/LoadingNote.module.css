@@ -1,0 +1,17 @@
+.loading {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  margin-top: var(--sp-16);
+  color: var(--fg2);
+  font: 600 13.5px/1 var(--sans);
+}
+
+.spinner {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--skeleton);
+  border-top-color: var(--pri);
+  border-radius: 50%;
+}

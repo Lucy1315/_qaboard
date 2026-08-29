@@ -1,3 +1,8 @@
+/* 웹폰트는 CSS 클로저 안에서 불러온다.
+   Claude Design 이 렌더하는 시안은 styles.css 의 @import 클로저만 받으므로,
+   index.html 의 <link> 만으로는 시안이 시스템 폰트로 떨어진다. */
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
 /* T009 — design.md 15절 디자인 토큰. 이름과 값을 1:1로 옮긴다.
    --ink800 은 확정본 미사용이므로 선언하지 않는다 (design.md 25절 3번).
    --focusDark 는 어두운 표면 포커스 링으로 분리한다 (design.md 25절 2번). */
@@ -21,6 +26,14 @@
   --divider: #dfe4ee;
   --input-border: #767f94;
 
+  /* 어두운 표면 경계 — design.md 7·9·19.2절의 확정값을 역할별 토큰으로 승격한다 */
+  --line-dark-hd: rgb(255 255 255 / 12%);
+  --line-dark-card: rgb(255 255 255 / 16%);
+  --line-dark-eyebrow: rgb(255 255 255 / 24%);
+  --line-dark-role: rgb(255 255 255 / 34%);
+  --line-dark-btn: rgb(255 255 255 / 42%);
+  --line-dark-btn-hover: rgb(255 255 255 / 75%);
+
   /* 포인트 */
   --pri: #2a4fe0;
   --pri2: #1e3bb8;
@@ -29,6 +42,16 @@
   --focus-dark: #7c97ff;
   --err: #a81e12;
   --wait-edge: #c97a16;
+
+  /* Hero 시각 효과 — design.md 10절 확정값 */
+  --aurora-1: rgb(42 79 224 / 28%);
+  --aurora-2: rgb(107 70 229 / 50%);
+  --aurora-3: rgb(58 169 224 / 20%);
+  --grid-line: rgb(255 255 255 / 100%);
+  --connector-top: rgb(107 70 229 / 10%);
+  --connector-mid: rgb(107 70 229 / 100%);
+  --connector-end: rgb(42 79 224 / 10%);
+  --dot-glow: rgb(107 70 229 / 25%);
 
   /* 상태 배지 — 밝은 표면 */
   --bdg-wait-fg: #8a4b00;
@@ -62,18 +85,37 @@
   --confirm-border: #e4b8b2;
   --destructive-border: #c98b84;
 
-  /* 간격 (design.md 18절) */
-  --sp1: 4px;
-  --sp2: 8px;
-  --sp3: 12px;
-  --sp4: 16px;
-  --sp5: 20px;
-  --sp6: 24px;
-  --sp7: 32px;
-  --sp8: 40px;
-  --sp9: 56px;
-  --sp10: 72px;
-  --sp11: 96px;
+  /* 간격 — design.md 18절이 열거한 값 전부. 이름이 곧 값이라 원시 px 를 남길 이유가 없다 */
+  --sp-2: 2px;
+  --sp-4: 4px;
+  --sp-6: 6px;
+  --sp-8: 8px;
+  --sp-10: 10px;
+  --sp-12: 12px;
+  --sp-14: 14px;
+  --sp-16: 16px;
+  --sp-17: 17px;
+  --sp-18: 18px;
+  --sp-20: 20px;
+  --sp-22: 22px;
+  --sp-24: 24px;
+  --sp-26: 26px;
+  --sp-28: 28px;
+  --sp-30: 30px;
+  --sp-32: 32px;
+  --sp-34: 34px;
+  --sp-36: 36px;
+  --sp-38: 38px;
+  --sp-40: 40px;
+  --sp-44: 44px;
+  --sp-48: 48px;
+  --sp-56: 56px;
+  --sp-64: 64px;
+  --sp-72: 72px;
+  --sp-76: 76px;
+  --sp-84: 84px;
+  --sp-88: 88px;
+  --sp-96: 96px;
 
   /* 최대 폭 */
   --w-hero: 1200px;

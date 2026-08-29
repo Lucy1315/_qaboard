@@ -1,0 +1,11 @@
+{
+  "projectId": "0463f5d4-2414-4c9a-b5c8-ef3c5af80cf3",
+  "shape": "package",
+  "pkg": "qanow",
+  "globalName": "QanowDS",
+  "srcDir": "src",
+  "tsconfig": "tsconfig.app.json",
+  "tokensGlob": "src/styles/tokens.css",
+  "readmeHeader": ".design-sync/conventions.md",
+  "buildCmd": "npm run build:lib"
+}

@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": false,
+    "outDir": "./dist-lib",
+    "rootDir": "./src",
+    "composite": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "include": ["src/components", "src/data/types.ts", "src/data/validation.ts", "src/lib/format.ts"],
+  "exclude": ["tests", "src/test"]
+}

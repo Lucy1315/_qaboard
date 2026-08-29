@@ -7,3 +7,9 @@ coverage
 test-results
 playwright-report
 *.tsbuildinfo
+ds-bundle
+.ds-sync
+.design-sync/.cache
+.design-sync/learnings
+.design-sync/node_modules
+dist-lib

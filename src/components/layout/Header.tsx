@@ -1,47 +1,56 @@
-/* T014 — design.md 7절. 항목 3개 고정, 접이식(햄버거) 메뉴를 만들지 않는다.
-   세 화면이 이 헤더 하나를 공유한다 (FR-039). */
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../auth/useAuth';
+/* T014·T036 — design.md 7절. 항목 3개 고정, 접이식 메뉴를 두지 않는다.
+   라우터·인증 컨텍스트에 의존하지 않으므로 단독으로 렌더할 수 있다(디자인 시스템 동기화 대상). */
 import styles from './Header.module.css';
 
-const ROLE_LABEL = { anon: '비회원', member: '회원', admin: '관리자' } as const;
+export type HeaderRole = 'anon' | 'member' | 'admin';
 
-export function Header() {
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
-  const { viewer, isAdmin } = useAuth();
-  const onHome = pathname === '/';
-  const onList = pathname.startsWith('/questions');
+const ROLE_LABEL: Record<HeaderRole, string> = {
+  anon: '비회원',
+  member: '회원',
+  admin: '관리자',
+};
 
-  const keep = (to: string) => () => navigate({ pathname: to, search: window.location.search });
+export function Header({
+  role,
+  current,
+  onHome,
+  onList,
+}: {
+  role: HeaderRole;
+  current: 'home' | 'list' | null;
+  onHome: () => void;
+  onList: () => void;
+}) {
+  const onHomePage = current === 'home';
+  const onListPage = current === 'list';
 
   return (
     <header className={`${styles.hd} surfaceDark`}>
       <div className={styles.left}>
-        <button type="button" className={styles.logo} onClick={keep('/')}>
+        <button type="button" className={styles.logo} onClick={onHome}>
           QANOW
         </button>
         <nav className={styles.nav} aria-label="주요 메뉴">
           <button
             type="button"
-            className={`${styles.link} ${onHome ? styles.current : ''}`}
-            onClick={keep('/')}
-            aria-current={onHome ? 'page' : undefined}
+            className={`${styles.link} ${onHomePage ? styles.current : ''}`}
+            onClick={onHome}
+            aria-current={onHomePage ? 'page' : undefined}
           >
             서비스 소개
           </button>
           <button
             type="button"
-            className={`${styles.link} ${onList ? styles.current : ''}`}
-            onClick={keep('/questions')}
-            aria-current={onList ? 'page' : undefined}
+            className={`${styles.link} ${onListPage ? styles.current : ''}`}
+            onClick={onList}
+            aria-current={onListPage ? 'page' : undefined}
           >
-            {isAdmin ? '문의 관리' : '내 질문'}
+            {role === 'admin' ? '문의 관리' : '내 질문'}
           </button>
         </nav>
       </div>
       <div className={styles.right}>
-        <span className={styles.role}>{ROLE_LABEL[viewer.role]}</span>
+        <span className={styles.role}>{ROLE_LABEL[role]}</span>
       </div>
     </header>
   );

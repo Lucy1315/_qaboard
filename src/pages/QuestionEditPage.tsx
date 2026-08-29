@@ -5,7 +5,7 @@ import { Page, PageHeader } from '../components/layout/Page';
 import { QuestionForm } from '../components/question/QuestionForm';
 import { StateBox } from '../components/ui/StateBox';
 import { DetailSkeleton } from '../components/ui/Skeleton';
-import { LoadingNote } from '../components/ui/StateBox';
+import { LoadingNote } from '../components/ui/LoadingNote';
 import { Button } from '../components/ui/Button';
 import { repository } from '../data/repository';
 import { UnauthorizedError, ValidationError } from '../data/errors';

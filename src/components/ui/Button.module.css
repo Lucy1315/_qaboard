@@ -2,9 +2,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--sp2);
+  gap: var(--sp-8);
   height: 44px;
-  padding: 0 var(--sp5);
+  padding: 0 var(--sp-20);
   border: 1px solid transparent;
   border-radius: var(--r-btn);
   background: none;
@@ -14,7 +14,7 @@
 
 .sm {
   height: 38px;
-  padding: 0 var(--sp3) 0 var(--sp3);
+  padding: 0 var(--sp-12) 0 var(--sp-12);
   font-size: 14px;
 }
 
@@ -50,22 +50,13 @@
   border-color: var(--err);
 }
 
-.darkPrimary {
-  background: var(--pri);
-  color: var(--sur);
-}
-
-.darkPrimary:hover:not(:disabled) {
-  background: var(--pri2);
-}
-
 .darkSecondary {
-  border-color: rgb(255 255 255 / 42%);
+  border-color: var(--line-dark-btn);
   color: var(--on-dark);
 }
 
 .darkSecondary:hover:not(:disabled) {
-  border-color: rgb(255 255 255 / 75%);
+  border-color: var(--line-dark-btn-hover);
 }
 
 .block {

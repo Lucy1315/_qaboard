@@ -1,6 +1,6 @@
 /* T017 — design.md 19.3절 / 12절.
    라벨을 생략할 수 없고, 도움말·오류·글자 수를 한 곳에서 묶어 접근성 연결을 보장한다. */
-import { useId, type InputHTMLAttributes, type TextareaHTMLAttributes } from 'react';
+import { useId, type InputHTMLAttributes, type Ref, type TextareaHTMLAttributes } from 'react';
 import styles from './Field.module.css';
 
 type Common = {
@@ -15,8 +15,9 @@ export function InputField({
   help,
   error,
   count,
+  inputRef,
   ...rest
-}: Common & InputHTMLAttributes<HTMLInputElement>) {
+}: Common & { inputRef?: Ref<HTMLInputElement> } & InputHTMLAttributes<HTMLInputElement>) {
   const id = useId();
   const descId = `${id}-desc`;
   return (
@@ -25,6 +26,7 @@ export function InputField({
         {label}
       </label>
       <input
+        ref={inputRef}
         id={id}
         className={`${styles.control} ${styles.input} ${error ? styles.bad : ''}`}
         aria-describedby={descId}
@@ -48,8 +50,9 @@ export function TextareaField({
   help,
   error,
   count,
+  inputRef,
   ...rest
-}: Common & TextareaHTMLAttributes<HTMLTextAreaElement>) {
+}: Common & { inputRef?: Ref<HTMLTextAreaElement> } & TextareaHTMLAttributes<HTMLTextAreaElement>) {
   const id = useId();
   const descId = `${id}-desc`;
   return (
@@ -58,6 +61,7 @@ export function TextareaField({
         {label}
       </label>
       <textarea
+        ref={inputRef}
         id={id}
         className={`${styles.control} ${styles.textarea} ${error ? styles.bad : ''}`}
         aria-describedby={descId}

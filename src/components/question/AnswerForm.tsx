@@ -1,5 +1,5 @@
 /* T033 — design.md 13.1절. 관리자만 렌더된다 (FR-017). */
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button } from '../ui/Button';
 import { TextareaField } from '../ui/Field';
 import { Badge } from '../ui/Badge';
@@ -17,6 +17,7 @@ type Props = {
 export function AnswerForm({ initial, answered, saving, onCancel, onSubmit }: Props) {
   const [body, setBody] = useState(initial);
   const [touched, setTouched] = useState(false);
+  const bodyRef = useRef<HTMLTextAreaElement>(null);
   const err = touched ? validateAnswer(body) : null;
 
   return (
@@ -26,6 +27,7 @@ export function AnswerForm({ initial, answered, saving, onCancel, onSubmit }: Pr
         help={HELP.answer}
         error={err}
         count={{ now: countOf(body), max: LIMITS.answer }}
+        inputRef={bodyRef}
         value={body}
         placeholder="답변 내용을 입력하세요"
         onChange={(e) => setBody(e.target.value)}
@@ -39,7 +41,10 @@ export function AnswerForm({ initial, answered, saving, onCancel, onSubmit }: Pr
           loading={saving}
           onClick={() => {
             setTouched(true);
-            if (validateAnswer(body)) return;
+            if (validateAnswer(body)) {
+              bodyRef.current?.focus();
+              return;
+            }
             onSubmit(body);
           }}
         >

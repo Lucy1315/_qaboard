@@ -1,7 +1,7 @@
 .page {
   max-width: var(--w-page);
   margin: 0 auto;
-  padding: var(--sp8) var(--sp8) var(--sp10);
+  padding: var(--sp-40) var(--sp-40) var(--sp-72);
 }
 
 .prose {
@@ -12,8 +12,8 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: var(--sp5);
-  padding-bottom: var(--sp5);
+  gap: var(--sp-20);
+  padding-bottom: var(--sp-20);
   border-bottom: 1px solid var(--divider);
 }
 
@@ -22,7 +22,7 @@
 }
 
 .title h1 {
-  margin: 0 0 var(--sp2);
+  margin: 0 0 var(--sp-8);
   font: 700 30px/1.35 var(--sans);
   color: var(--fg);
 }
@@ -34,7 +34,7 @@
 }
 
 .back {
-  padding: 0 0 14px;
+  padding: 0 0 var(--sp-14);
   border: 0;
   background: none;
   color: var(--fg2);
@@ -50,8 +50,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sp4);
-  padding: var(--sp6) var(--sp8);
+  gap: var(--sp-16);
+  padding: var(--sp-24) var(--sp-40);
   background: var(--ink900);
 }
 
@@ -69,13 +69,13 @@
 
 @media (width <= 767px) {
   .page {
-    padding: var(--sp6) var(--sp5) var(--sp8);
+    padding: var(--sp-24) var(--sp-20) var(--sp-40);
   }
 
   .title {
     flex-direction: column;
     align-items: stretch;
-    gap: 14px;
+    gap: var(--sp-14);
   }
 
   .title h1 {
@@ -83,6 +83,6 @@
   }
 
   .footer {
-    padding: var(--sp5);
+    padding: var(--sp-20);
   }
 }

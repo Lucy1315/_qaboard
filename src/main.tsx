@@ -1,9 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import './styles/tokens.css';
-import './styles/base.css';
-import './styles/motion.css';
+import './styles/index.css';
 import { App } from './App';
 import { AuthProvider } from './auth/AuthProvider';
 import { missingEnv } from './lib/env';
