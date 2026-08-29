@@ -1,0 +1,9 @@
+node_modules
+dist
+dist-types
+.env.local
+.env*.local
+coverage
+test-results
+playwright-report
+*.tsbuildinfo

@@ -1,0 +1,35 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "custom-property-pattern": null,
+    "selector-class-pattern": null,
+    "no-descending-specificity": null,
+    "declaration-property-value-no-unknown": null,
+    "color-hex-length": null,
+    "declaration-property-value-disallowed-list": {
+      "animation": ["/.*/"],
+      "animation-name": ["/.*/"]
+    }
+  },
+  "overrides": [
+    {
+      "comment": "T004 — 컴포넌트 CSS 는 색을 하드코딩하지 않고 토큰만 쓴다 (design.md 15절)",
+      "files": ["src/components/**/*.module.css", "src/styles/base.css"],
+      "rules": { "color-no-hex": true }
+    },
+    {
+      "comment": "Hero 는 Aurora 그라데이션과 마스크에 원시 색을 쓴다 (design.md 10절)",
+      "files": ["src/components/hero/*.module.css"],
+      "rules": { "color-no-hex": null }
+    },
+    {
+      "comment": "토큰 정의 파일과 모션 파일은 예외이다",
+      "files": ["src/styles/tokens.css"],
+      "rules": { "color-no-hex": null, "value-keyword-case": null }
+    },
+    {
+      "files": ["src/styles/motion.css"],
+      "rules": { "declaration-property-value-disallowed-list": null }
+    }
+  ]
+}
